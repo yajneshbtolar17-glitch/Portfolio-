@@ -1,98 +1,493 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Serenity Therapy & Wellness</title>
+
     <style>
-        body {
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
             font-family: Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
+            background: #f5faf7;
+            color: #24352f;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #28705c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #34443e;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #28705c;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #e5f4ed, #f7fbf9);
         }
 
-        header {
-            background: #111827;
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: #214f42;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #61716b;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #28705c;
             color: white;
-            padding: 60px 20px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin: 0 0 10px;
-        }
-
-        header p {
-            font-size: 18px;
+        .button:hover {
+            background: #1e5848;
         }
 
         section {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 25px;
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #214f42;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #6b7974;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
             background: white;
-            border-radius: 12px;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            text-align: center;
         }
 
-        h2 {
-            color: #2563eb;
+        .card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
         }
 
-        .project {
-            padding: 15px;
-            margin-top: 15px;
-            background: #eef2ff;
-            border-radius: 8px;
+        .card h3 {
+            color: #28705c;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #68766f;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: #65736d;
+            margin-bottom: 15px;
+        }
+
+        .why-us {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .why-card h3 {
+            margin: 12px 0;
+            color: #28705c;
+        }
+
+        .why-card p {
+            color: #6b7974;
+        }
+
+        .contact {
+            background: #e5f4ed;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            margin-bottom: 25px;
+            color: #5f7068;
+            font-size: 18px;
         }
 
         footer {
-            background: #111827;
+            background: #214f42;
             color: white;
-            padding: 20px;
-            margin-top: 40px;
+            text-align: center;
+            padding: 30px 20px;
         }
+
+        footer p {
+            margin: 5px;
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding: 60px 6%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .services,
+            .why-us {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>My Portfolio</h1>
-    <p>Welcome to my personal website</p>
-</header>
+    <nav>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        Welcome to my portfolio website. This website showcases
-        my skills, projects and work.
-    </p>
-</section>
+        <div class="logo">
+            Serenity
+        </div>
 
-<section>
-    <h2>My Skills</h2>
-    <p>Web Development • Programming • Data Analysis</p>
-</section>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
 
-<section>
-    <h2>My Projects</h2>
+    </nav>
 
-    <div class="project">
-        <h3>Calculator</h3>
-        <p>A simple calculator website created using HTML, CSS and JavaScript.</p>
-    </div>
-</section>
 
-<section>
-    <h2>Contact</h2>
-    <p>You can contact me through my social profiles.</p>
-</section>
+    <section class="hero" id="home">
 
-<footer>
-    <p>© 2026 My Portfolio</p>
-</footer>
+        <div class="hero-content">
+
+            <h1>
+                Your Journey Toward Better Wellbeing
+            </h1>
+
+            <p>
+                A calm and supportive space designed to help you feel,
+                heal and grow.
+            </p>
+
+            <a href="#contact" class="button">
+                Book an Appointment
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section id="services">
+
+        <div class="section-title">
+
+            <h2>Our Services</h2>
+
+            <p>
+                Support designed around your individual needs.
+            </p>
+
+        </div>
+
+
+        <div class="services">
+
+            <div class="card">
+
+                <div class="card-icon">🧠</div>
+
+                <h3>Individual Therapy</h3>
+
+                <p>
+                    One-to-one sessions in a comfortable and
+                    supportive environment.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">💚</div>
+
+                <h3>Wellness Support</h3>
+
+                <p>
+                    Guidance focused on building healthier
+                    habits and emotional wellbeing.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🌿</div>
+
+                <h3>Stress Management</h3>
+
+                <p>
+                    Learn practical ways to manage everyday
+                    stress and improve balance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <h2>About Serenity</h2>
+
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                Serenity Therapy & Wellness is a welcoming space
+                focused on helping people take positive steps
+                toward greater wellbeing.
+            </p>
+
+            <p>
+                Our approach is built around listening, understanding
+                and creating a comfortable environment for every visitor.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>Why Choose Us?</h2>
+
+            <p>
+                A simple approach focused on you.
+            </p>
+
+        </div>
+
+
+        <div class="why-us">
+
+            <div class="why-card">
+
+                <div class="card-icon">🤝</div>
+
+                <h3>Personal Support</h3>
+
+                <p>
+                    Every person deserves individual attention
+                    and understanding.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="card-icon">🔒</div>
+
+                <h3>Private & Comfortable</h3>
+
+                <p>
+                    A welcoming environment where you can
+                    feel comfortable.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="card-icon">🌱</div>
+
+                <h3>Positive Growth</h3>
+
+                <p>
+                    Take meaningful steps toward better
+                    everyday wellbeing.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="contact" id="contact">
+
+        <div class="contact-box">
+
+            <div class="section-title">
+
+                <h2>Ready to Take the Next Step?</h2>
+
+            </div>
+
+            <p>
+                Contact us to learn more or schedule an appointment.
+            </p>
+
+            <a href="mailto:hello@example.com" class="button">
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            <strong>Serenity Therapy & Wellness</strong>
+        </p>
+
+        <p>
+            © 2026 Serenity. All rights reserved.
+        </p>
+
+    </footer>
 
 </body>
-</html>
+
+            </html>
